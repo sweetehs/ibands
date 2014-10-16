@@ -1,0 +1,13 @@
+html class命名规则
+	1.class之间要用-连接，如：s-commong-btn
+	2.关于样式的class要以s开头
+	3.通用样式的class要用s-common开头
+	4.绑定事件的class要以e开头
+前端js的命名规则
+	1.所有函数采用驼峰式写法，如testFunction
+	2.全局对象采用首字母大写的方式，如TestFunction
+后端js的命名规则
+	1.增删改查分别以add、del、update、get开头来命名
+文件夹、文件夹命名
+	1.都采用-式，如test-folder、test-file.js等
+	2.如果有通用命名，如都是router，则要写明router-test等
