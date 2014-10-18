@@ -1,3 +1,4 @@
+// 
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
@@ -38,32 +39,18 @@ module.exports = function(grunt) {
             var dirArr = dir.split("/");
             var lastDirName = dirArr[dirArr.length-1];
             grunt.file.expand(jsModule + lastDirName + "/*.js").forEach(function(dir){
-                console.log(dir);
-                if(dir.indexOf(".n.") === -1){
-                    // concat config
-                    var jsStr = dir.split("/");
-                    var jsName = jsStr[jsStr.length-1];
-                    var jsCombineName = jsName.split(".")[0];
-                    if(!concat[lastDirName+jsCombineName]){
-                        concat[lastDirName+jsCombineName] = {};
-                        concat[lastDirName+jsCombineName].src = [];
-                    }
-                    concat[lastDirName+jsCombineName].src.push(dir);
-                    concat[lastDirName+jsCombineName].dest = buildJsMoule + lastDirName + "/" +jsCombineName + ".js";
-                }else{
-                    // copy config
-                    copy[lastDirName] = {
-                        expand: true,
-                        flatten: true,
-                        src: [jsModule + lastDirName +'/*.n.js'],
-                        dest: buildJsMoule + lastDirName,
-                        filter: 'isFile'
-                    }
+                var jsStr = dir.split("/");
+                var jsName = jsStr[jsStr.length-1];
+                var jsCombineName = jsName.split(".")[0];
+                if(!concat[lastDirName+jsCombineName]){
+                    concat[lastDirName+jsCombineName] = {};
+                    concat[lastDirName+jsCombineName].src = [];
                 }
+                concat[lastDirName+jsCombineName].src.push(dir);
+                concat[lastDirName+jsCombineName].dest = buildJsMoule + lastDirName + "/" +jsCombineName + ".js";
             })
         })
         grunt.config.set("concat",concat);
-        console.log(copy);
         grunt.config.set("copy",copy);
     })
     grunt.registerTask("tbuild",["config","concat","copy"]);
