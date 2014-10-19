@@ -21,6 +21,17 @@ module.exports = function(grunt) {
                     filter: 'isFile'
                 }]
             }
+        },
+        less : {
+            build: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/dev/less/',
+                    src: ['{,*/}*.less', '!base/*.less'],
+                    dest: 'public/build/css/',
+                    ext: '.css'
+                }]
+            }
         }
     });
     grunt.loadNpmTasks("grunt-contrib-less");
@@ -38,7 +49,7 @@ module.exports = function(grunt) {
         grunt.file.expand(jsModule + "*").forEach(function(dir){
             var dirArr = dir.split("/");
             var lastDirName = dirArr[dirArr.length-1];
-            grunt.file.expand(jsModule + lastDirName + "/*.js").forEach(function(dir){
+            grunt.file.expand(jsModule + lastDirName + "/*.js").forEach(function(dir){  
                 var jsStr = dir.split("/");
                 var jsName = jsStr[jsStr.length-1];
                 var jsCombineName = jsName.split(".")[0];
@@ -53,5 +64,5 @@ module.exports = function(grunt) {
         grunt.config.set("concat",concat);
         grunt.config.set("copy",copy);
     })
-    grunt.registerTask("tbuild",["config","concat","copy"]);
+    grunt.registerTask("tbuild",["config","concat","copy","less"]);
 };module
