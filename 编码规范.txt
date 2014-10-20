@@ -1,7 +1,6 @@
 html class命名规则
-	1.class之间要用-连接，如：s-commong-btn
-	2.关于样式的class要以s开头
-	3.通用样式的class要用s-common开头
+	1.class之间要用-连接，如：commong-btn
+	3.通用样式的class要用common开头
 	4.绑定事件的class要以e开头
 前端js的命名规则
 	1.所有函数采用驼峰式写法，如testFunction
