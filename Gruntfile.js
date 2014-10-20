@@ -1,4 +1,4 @@
-// 
+//
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                     expand: true,
                     flatten: true,
                     cwd: "public/dev/js/lib/",
-                    src: ["**"],
+                    src: ["{,*/}*"],
                     dest: "public/build/js/lib/",
                     filter: 'isFile'
                 }]
@@ -32,6 +32,22 @@ module.exports = function(grunt) {
                     ext: '.css'
                 }]
             }
+        },
+        includereplace : {
+            build: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/dev/html',
+                    src: ['{,*/}*.html',"!tpl/*.html"],
+                    dest: 'public/build/html'
+                }]
+            }
+        },
+        watch : {
+            less : {
+                files : ["public/dev/less/{,*/}*.less"],
+                tasks : ["less"]
+            }
         }
     });
     grunt.loadNpmTasks("grunt-contrib-less");
@@ -40,6 +56,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-include-replace");
     grunt.loadNpmTasks("grunt-usemin");
     grunt.registerTask("config","js-module",function(){
         var jsModule = "public/dev/js/module/";
@@ -49,7 +66,7 @@ module.exports = function(grunt) {
         grunt.file.expand(jsModule + "*").forEach(function(dir){
             var dirArr = dir.split("/");
             var lastDirName = dirArr[dirArr.length-1];
-            grunt.file.expand(jsModule + lastDirName + "/*.js").forEach(function(dir){  
+            grunt.file.expand(jsModule + lastDirName + "/*.js").forEach(function(dir){
                 var jsStr = dir.split("/");
                 var jsName = jsStr[jsStr.length-1];
                 var jsCombineName = jsName.split(".")[0];
@@ -64,5 +81,7 @@ module.exports = function(grunt) {
         grunt.config.set("concat",concat);
         grunt.config.set("copy",copy);
     })
+    grunt.registerTask("treplace",["includereplace"]);
+    grunt.registerTask("twatch",["watch"]);
     grunt.registerTask("tbuild",["config","concat","copy","less"]);
 };module
