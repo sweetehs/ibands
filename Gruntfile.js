@@ -47,6 +47,10 @@ module.exports = function(grunt) {
             less : {
                 files : ["public/dev/less/{,*/}*.less"],
                 tasks : ["less"]
+            },
+            includereplace : {
+            files : ["public/dev/html/{,*/}*.html"],
+                tasks : ["includereplace"]
             }
         }
     });
@@ -83,5 +87,5 @@ module.exports = function(grunt) {
     })
     grunt.registerTask("treplace",["includereplace"]);
     grunt.registerTask("twatch",["watch"]);
-    grunt.registerTask("tbuild",["config","concat","copy","less"]);
-};module
+    grunt.registerTask("tbuild",["config","includereplace","concat","copy","less"]);
+};
