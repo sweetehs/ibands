@@ -1,0 +1,43 @@
+@import "../base/config.less";
+.rehearse-wrapper{
+	.publicity-title{
+		font-size: 16px;
+		margin-bottom: 15px;
+	}
+	.rehearse-item{
+		width: 465px;
+		height: 430px;
+		float: left;
+		margin: 0 20px 20px 0;
+		box-shadow: 0 0 20px #ccc;
+		padding-top: 8px;
+		background: #fff;
+		&.last{
+			margin-right: 0px;
+		}
+		.img{
+			height: 300px;
+			text-align: center;
+			img{
+				display: inline-block;
+				height: 100%;
+			}
+		}
+		.title{
+			width: 80px;
+			text-align: right;
+			display: inline-block;
+		}
+		.rehearse-info{
+			padding: 0 20px;
+			margin-top: 20px;
+			position: relative;
+			height: 100px;
+			.btn-more{
+				position: absolute;
+				bottom: 0;
+				right: 18px;
+			}
+		}
+	}
+}
