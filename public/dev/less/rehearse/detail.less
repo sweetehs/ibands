@@ -75,33 +75,36 @@
 }
 .rehearse-detail-nav{
 	position: absolute;
-	top: 90px;
-	left: 60px;
-	ul{
-		box-shadow: -6px 6px 10px #ccc;
-	}
+	top: 70px;
+	left: 78px;
 	li{
-		border: 1px solid #C7CACC;
-		border-bottom:1px solid #DFDFDF;
-		border-top: 1px solid #ffffff;
-		//background: url("@{img}/rehearse/bg-nav.png") repeat;
-		background: #F3F3F3;
-		text-align: center;
-		transition : all 0.5s ease;
+		transition: all 0.3s ease-out;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		display: block;
+		text-decoration: none;
+		box-shadow: -2px 2px 4px #888;
+		text-align: right;
+		margin-bottom: 5px;
 		a{
+			transition: all 0.3s ease-out;
 			display: block;
-			width: 90px;
-			padding: 8px 12px;
+			width: 75px;
+			padding: 8px 12px 8px 12px;
+			color: #174867;
 		}
 		&.active{
-			background: #E7E7E7;
+			background: #ebebeb;
 			a{
 				border-right: 2px solid #F39C11;
-				color: #888888;
+				color: #67a5cd;
 			}
 		}
 		&:hover{
-			background: #fff;
+			background: #ebebeb;
+			a{
+				color: #67a5cd;
+			}
 		}
 	}
 }
