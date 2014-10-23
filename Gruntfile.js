@@ -43,14 +43,28 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        clean : {
+            all : {
+                src : "public/build"
+            },
+            html : {
+                src : "public/build/html"
+            },
+            less : {
+                src : "public/build/css"
+            },
+            js : {
+                src : "public/build/js"
+            }
+        },
         watch : {
             less : {
                 files : ["public/dev/less/{,*/}*.less"],
-                tasks : ["less"]
+                tasks : ["clean:less","less"]
             },
             includereplace : {
             files : ["public/dev/html/{,*/}*.html"],
-                tasks : ["includereplace"]
+                tasks : ["clean:html","includereplace"]
             }
         }
     });
@@ -86,6 +100,6 @@ module.exports = function(grunt) {
         grunt.config.set("copy",copy);
     })
     grunt.registerTask("treplace",["includereplace"]);
-    grunt.registerTask("twatch",["watch"]);
-    grunt.registerTask("tbuild",["config","includereplace","concat","copy","less"]);
+    grunt.registerTask("tbuild",["config","clean:all","includereplace","concat","copy","less"]);
+    grunt.registerTask("twatch",["tbuild","watch"]);
 };
