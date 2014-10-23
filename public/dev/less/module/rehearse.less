@@ -140,10 +140,40 @@
 	.img-show{
 		width: 960px;
 		margin: 0 auto;
+		position: relative;
+		h3{
+			position: absolute;
+			font-size: 32px;
+			color: #fff;
+			width: 32px;
+			bottom: 0;
+			font-family: "Apple LiGothic Mediu";
+		}
 		img{
 			display: inline-block;
 			height: 500px;
 			box-shadow: 0 0 40px;
+		}
+		.btn-prev,.btn-next{
+			display: block;
+			outline: none;
+			width: 41px;
+			height: 68px;
+			background: url("@{img}/rehearse/lrbtn.png") no-repeat;
+			opacity: 0.6;
+			filter: alpha(opacity=60);
+			position: absolute;
+			top: 50%;
+			margin-top: -34px;
+			z-index: 10;
+		}
+		.btn-prev{
+			background-position: 0 0;
+			left: 0;
+		}
+		.btn-next{
+			background-position: -41px 0;
+			right: 0;
 		}
 	}
 	.img-show-ctrl{
