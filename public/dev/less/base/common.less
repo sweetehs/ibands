@@ -1,6 +1,53 @@
 body{
 	background: url("@{img}/bg.png") repeat;
 }
+//---------------------------------------------------------------
+.btn-text{
+	color: #F39C11;
+}
+.btn-common {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: 4px;
+	min-width: 60px;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	&.blue{
+		color: #FFF;
+		border: solid 1px #0076a3;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from(#2A80B9), to(#0078a5));
+		&:hover {
+			background: #007ead;
+			background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+			background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+			filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+		}
+	}
+	&.white{
+		color: #606060;
+		border: solid 1px #b7b7b7;
+		background: #fff;
+		background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+		&:hover{
+			background: #ededed;
+			background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+			background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+		}
+	}
+}
+//---------------------------------------------------------------
 .common-top-wrapper{
 	margin-bottom: 40px;
 	height: 70px;
@@ -28,10 +75,10 @@ body{
 		float: left;
 		position: relative;
 		height: 100%;
+		@w : 85px;
 		li{
 			float: left;
-			width: 65px;
-			padding: 30px 10px 0 10px;
+			width: @w;
 			&.active{
 				a{
 					color: #fff;
@@ -47,6 +94,7 @@ body{
 				left: 0;
 			}
 			a{
+				padding-top: 30px;
 				display: block;
 				text-align: center;
 				color: #999;
@@ -58,10 +106,10 @@ body{
 			}
 		}
 		li:nth-child(2):hover ~ .slider{
-			left: 85px*1;
+			left: @w*1;
 		}
 		li:nth-child(3):hover ~ .slider{
-			left: 85px*2;
+			left: @w*2;
 		}
 	}
 	.search-input{
@@ -69,7 +117,7 @@ body{
 		height: 26px;
 		border-radius: 26px;
 		width: 160px;
-		background: url("/images/icons.png") 6px 2px no-repeat #D8D8D8;
+		background: url("/images/icons/icons.png") 6px 2px no-repeat #D8D8D8;
 		padding-left: 32px;
 		float: right;
 		margin-top: 30px;
@@ -152,12 +200,27 @@ body{
 		margin-left: 80px;
 	}
 }
+.common-title{
+	font-size: 18px;
+	width: 960px;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
 .main-wrapper{
 	margin: 0 auto;
 	width: 960px;
-	margin-top: 40px;
 	position: relative;
 }
-.btn-text{
-	color: #F39C11;
+.main-inner{
+	background: #fff;
+	min-height: 300px;
+	padding: 30px;
+}
+.public-title{
+	font-size: 16px;
+	margin-bottom: 15px;
+	width: 960px;
+	margin: 0 auto;
+	margin-bottom: 10px;
 }

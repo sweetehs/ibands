@@ -9,9 +9,9 @@
 		}
 	}
 	.opacity{
-		transition : all 0.5s ease;
-		left: 465px;
-		top: 0;
+		transition : all 0.3s ease-out;
+		left: 0;
+		top: 485px;
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -42,6 +42,21 @@
 			}
 			&:hover{
 				transform: rotate3d(10,10,10,360deg);
+			}
+		}
+	}
+	.rehearse-add{
+		text-align: center;
+		img{
+			transition : all 0.5s ease;
+			height: 100px;
+			display: inline-block;
+			vertical-align: middle;
+			margin-top: 160px;
+		}
+		a:hover{
+			img{
+				transform: rotate(90deg);
 			}
 		}
 	}
