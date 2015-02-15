@@ -7,7 +7,8 @@ module.exports = function(grunt) {
             root : {
                 expand: true,
                 flatten: true,
-                src: ['public/dev/js/*.js'],
+                cwd : "public/dev/js/"
+                src: ['*.js'],
                 dest: 'public/build/js',
                 filter: 'isFile'
             },
